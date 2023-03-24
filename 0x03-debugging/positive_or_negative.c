@@ -1,5 +1,10 @@
 #include "main.h"
 
+/**
+ * positive_or_negative - function that print negative or positive number
+ * @i: parameter variable
+ * Return: always 0
+ */
 
 void positive_or_negative(int i)
 {
