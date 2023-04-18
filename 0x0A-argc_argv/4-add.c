@@ -1,39 +1,52 @@
-#include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
 #include <ctype.h>
+#include <string.h>
 /**
- * main - program that adds positive numbers.
- * @argc: argument count
- * @argv: argument vector
- * Return: 0
+ * check_num - check - string there are digit
+ * @str: array str
+ * Return: Always 0 (Success)
+ */
+int check_num(char *str)
+{
+	unsigned int c;
+
+	c = 0;
+	while (c < strlen(str))
+	{
+		if (!isdigit(str[c]))
+		{
+			return (0);
+		}
+		c++;
+	}
+	return (1);
+}
+/**
+ * main -  program that adds positive numbers.
+ * @argc: Count arguments
+ * @argv: Arguments
+ * Return: Always 0 (Success)
  */
 int main(int argc, char *argv[])
 {
-	int i, sum;
+	int count;
+	int str_to_int;
+	int sum = 0;
 
-	sum = 0;
-	if (argc > 1)
+	c = 1;
+	while (c < argc)
+{
+	if (check_num(argv[c]))
 	{
-		for (i = 1; i < argc; i++)
+		str_to_int = atoi(argv[c]);
+		sum += str_to_int;
+		else
 		{
-			int a;
-			char *str;
-
-			str = argv[i];
-			for (a = 0; str[a] != '\0'; a++)
-			{
-				if (str[a] < 48 || str[a] > 57)
-				{
-					printf("error\n");
-					return (1);
-				}
-			}
+			printf("Error\n");
+			return (1);
 		}
-	}
-	for (i = 1; i < argc; i++)
-	{
-	sum = sum + atoi(argv[i]);
+		c++;
 	}
 	printf("%d\n", sum);
 	return (0);
